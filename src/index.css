@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply transition-colors duration-700 ease-in-out;
+  }
+
+  /* Plynulé přechody pro všechny důležité elementy */
+  *, *::before, *::after {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+}
+
+/* Animace pro přepínání tématu */
+.theme-transition {
+  animation: theme-fade 0.3s ease-in-out;
+}
+
+@keyframes theme-fade {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px) translateY(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px) translateY(2px); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 2s linear infinite;
+}
+
+/* Přidáme efekt rozmazání během přechodu */
+.theme-transitioning {
+  transition: filter 0.7s ease-in-out;
+  filter: blur(4px) brightness(1.2);
+}
+
+/* Atmosférický efekt */
+.atmosphere {
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 8s linear infinite;
+}
+
+/* Přidáme efekt zkreslení během přechodu */
+.dimension-warp {
+  animation: dimension-warp 1.2s ease-in-out;
+}
+
+@keyframes dimension-warp {
+  0% {
+    transform: perspective(500px) rotateX(0deg);
+  }
+  50% {
+    transform: perspective(500px) rotateX(10deg) scale(1.1);
+  }
+  100% {
+    transform: perspective(500px) rotateX(0deg);
+  }
+}
